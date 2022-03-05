@@ -14,14 +14,14 @@ class Generator:
         return url.split("id=")[1].split("&")[0]
 
     def get_test_inps(self, html):
-        bs = BeautifulSoup(html, features="lxml")
+        bs = BeautifulSoup(html, features="html5lib")
 
         test_inps = bs.find_all(class_="test_inp")
 
         return {x["name"]: x["value"] for x in test_inps}
 
     def get_answers(self, html):
-        bs = BeautifulSoup(html, features="lxml")
+        bs = BeautifulSoup(html, features="html5lib")
 
         ans = []
 
